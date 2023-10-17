@@ -1,0 +1,52 @@
+
+
+<!---Quetion:1 Design HTMl form accept name,age,and mobile no from user using java script validate for following student name should not be empty and student age between 1 to 20--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 1</title>
+    
+</head>
+<body>
+
+
+
+    <form  onsubmit="validateForm(); return false;">
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label for="mobile">Mobile No:</label>
+        <input type="tel" id="mobile" name="mobile" required>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById('name').value;
+            var age = document.getElementById('age').value;
+
+            if (name === '') {
+                alert('Name cannot be empty');
+                return;
+            }
+
+            if (isNaN(age) || age < 1 || age > 20) {
+                alert('Please enter a valid age between 1 and 20');
+                return;
+            }
+
+            alert('Form submitted successfully!');
+        }
+    </script>
+
+</body>
+</html>
+ 

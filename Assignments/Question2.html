@@ -1,0 +1,37 @@
+<!-- Design html form to accept a string.write a php script for the following write a function to count the total number of vowels from the script-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Input Form</title>
+    
+</head>
+<body>
+
+    
+
+    <form action="count_vowels.php" method="post">
+
+        <label for="inputString">Enter a String:</label>
+        <input type="text" id="inputString"  required>
+
+        <button type="submit">Submit</button>
+
+    </form>
+    
+
+</body>
+</html>
+
+    <script>
+        function processString() {
+            var inputString = document.getElementById('inputString').value;
+
+            // Do something with the input string
+            alert('You entered: ' + inputString);
+        }
+    </script>
+
+</body>
+</html>
