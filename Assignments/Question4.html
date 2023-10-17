@@ -1,0 +1,61 @@
+<!-- Write a html script to accept two number and arithmetic operation (radio buttion for +,-,/,*,%)from user and write php script to display the result of the operation on next page-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic Operation Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            margin-bottom: 12px;
+            padding: 8px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Arithmetic Operation Form</h2>
+
+    <form action="calculate.php" method="post">
+
+        <label for="num1">Enter Number 1:</label>
+        <input type="number" id="num1" name="num1" required>
+
+        <label for="num2">Enter Number 2:</label>
+        <input type="number" id="num2" name="num2" required>
+
+        <label>Choose Operation:</label>
+        <label><input type="radio" name="operation" value="add"> Addition</label>
+        <label><input type="radio" name="operation" value="subtract"> Subtraction</label>
+        <label><input type="radio" name="operation" value="multiply"> Multiplication</label>
+        <label><input type="radio" name="operation" value="divide"> Division</label>
+        <label><input type="radio" name="operation" value="modulo"> Modulus</label>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!--Design html form to show the occurences of each vowel from script.-->>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel Occurrences Form</title>
+    
+    
+</head>
+<body>
+
+    <h2>Vowel Occurrences Form</h2>
+
+    <form action="" method="post">
+
+        <label for="inputString">Enter a String:</label>
+        <input type="text" id="inputString" name="inputString" required>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <?php
+    // Display results if form has been submitted
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $inputString = $_POST["inputString"];
+        $vowelOccurrences = countVowelOccurrences($inputString);
+
+        // Display occurrences of each vowel
+        echo "<p>Vowel Occurrences:</p>";
+        foreach ($vowelOccurrences as $vowel => $count) {
+            echo "<p>$vowel: $count</p>";
+        }
+    }
+
+    // Function to count occurrences of each vowel in a string
+    function countVowelOccurrences($str) {
+        // Case-insensitive count of vowels (a, e, i, o, u)
+        $vowelOccurrences = array_count_values(preg_split('//u', preg_replace('/[^aeiou]/i', '', $str), -1, PREG_SPLIT_NO_EMPTY));
+
+        // Fill in missing vowels with zero occurrences
+        $vowels = array('a', 'e', 'i', 'o', 'u');
+        foreach ($vowels as $vowel) {
+            if (!isset($vowelOccurrences[$vowel])) {
+                $vowelOccurrences[$vowel] = 0;
+            }
+        }
+
+        // Sort the array by vowel
+        ksort($vowelOccurrences);
+
+        return $vowelOccurrences;
+    }
+    ?>
+
+</body>
+</html>
